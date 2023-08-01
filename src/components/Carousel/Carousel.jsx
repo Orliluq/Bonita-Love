@@ -4,9 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from 'styled-components';
 
-import Img1 from '../../assets/img/slider-images/img1.png';
-import Img2 from '../../assets/img/slider-images/img2.png';
-import Img3 from '../../assets/img/slider-images/img3.png';
+// import Img1 from '../../assets/img/slider-images/img1.png';
+// import Img2 from '../../assets/img/slider-images/img2.png';
+// import Img3 from '../../assets/img/slider-images/img3.png';
+import Offers from '../../components/offers/offers'
 
 const Carousel = () => {
   const settings = {
@@ -31,16 +32,13 @@ const Carousel = () => {
     <CarouselContainer>
       <CarouselWrapper {...settings}>
         <div>
-          <Img src={Img1} alt="Imagen 1" />
-          <ImgTitle>Image 1</ImgTitle>
+          <Offers></Offers>
         </div>
         <div>
-          <Img src={Img2} alt="Imagen 2" />
-          <ImgTitle>Image 2</ImgTitle>
+        <Offers></Offers>
         </div>
         <div>
-          <Img src={Img3} alt="Imagen 3" />
-          <ImgTitle>Image 3</ImgTitle>
+        <Offers></Offers>
         </div>
       </CarouselWrapper>
     </CarouselContainer>
@@ -119,15 +117,15 @@ const CarouselWrapper = styled(Slider)`
   }
 `;
 
-const Img = styled.img`
-  width: 100%;
-  height: 50%;
-`;
+// const Img = styled.img`
+//   width: 100%;
+//   height: 50%;
+// `;
 
-const ImgTitle = styled.p`
-  margin-top: 1rem;
-  text-align: center;
-`;
+// const ImgTitle = styled.p`
+//   margin-top: 1rem;
+//   text-align: center;
+// `;
 
 const ArrowIcon = styled.i`
   position: absolute;
