@@ -72,7 +72,6 @@ const Navbar = ({ initialLanguage }) => {
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: #b959bb;
   color: #fff;

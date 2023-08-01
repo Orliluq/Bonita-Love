@@ -5,6 +5,9 @@ import NavBar from "../../components/NavBar/NavBar";
 import Carousel from '../../components/Carousel/Carousel';
 import Footer from '../../components/Footer/Footer';
 import ChatBotComponent from '../../components/ChatBot/ChatBot';
+import style from './Landing.module.css'
+import maquillaje from '../../assets/img/maquillaje.png'
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   background-color: ${props => props.darkMode ? '#1a1a1a' : '#fff'};
@@ -48,43 +51,22 @@ const CardContainer = styled.div`
 
 const Card = styled.div`
   background-color: #fff;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
+  display:flex;
+  padding:1rem;
+  flex-direction:row;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   margin: 1rem;
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
-
   &:hover {
     transform: translateY(-0.5rem);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+
   }
 `;
 
-const CardImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
-
-const CardTitle = styled.h3`
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.5rem;
-  color: #333;
-  margin: 1rem;
-`;
-
-const CardDescription = styled.p`
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-  color: #666;
-  margin: 1rem;
-`;
 
 const LanguageSelector = styled.div`
   display: flex;
@@ -107,7 +89,9 @@ const LanguageSelector = styled.div`
   }
 `;
 
+
 const LandingPage = () => {
+  const navigate = useNavigate()
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [language, setLanguage] = useState('en'); 
 
@@ -127,6 +111,10 @@ const LandingPage = () => {
     }
   };
 
+  const goDetail = () => {
+  navigate('/detail')
+  }
+
   return (
     <>
       <Container darkMode={isDarkMode}>
@@ -138,24 +126,309 @@ const LandingPage = () => {
             : 'We are Bonita & Lovely.Discover the magic of beauty with us and always be charming and confident!'}
         </Subtitle>
 
-        <Button primary>{language === 'es' ? 'Comprar Ahora' : 'Buy Now'}</Button>
+        
+        <Button primary>{language === 'es' ? 'Comprar Ahora' : 'Comprar Ahora '}</Button>
+        
+
+{/* Daniel Productos */}
+
+        <h1 className={style.productosH1}>Nuestros Productos:</h1>
+
         <CardContainer>
           <Card>
-            <CardImage src="https://via.placeholder.com/300x300.png?text=Product+1" alt="Product 1" />
-            <CardTitle>{language === 'es' ? 'Producto 1' : 'Product 1'}</CardTitle>
-            <CardDescription>{language === 'es' ? 'Descripción del Producto 1' : 'Product 1 Description'}</CardDescription>
+  <div class="flex font-sans">
+  <div class="flex-none w-56 relative">
+    <img src={maquillaje} alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+  </div>
+  <form class="flex-auto p-6">
+    <div class="flex flex-wrap">
+      <h1 class="flex-auto font-medium text-slate-900">
+        Producto 1
+      </h1>
+      <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-pink-600 ">
+        $3600.00
+      </div>
+      <div class="text-sm font-medium text-slate-400">
+        En stock
+      </div>
+    </div>
+    <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+     
+    </div>
+    <div class="flex space-x-4 mb-5 text-sm font-medium">
+      <div class="flex-auto flex space-x-4">
+        <button onClick={goDetail} class="h-10 px-6 font-semibold rounded-full bg-pink-600 text-white" type="submit">
+          Comprar Ahora
+        </button>
+        <button class="h-10 px-6 font-semibold rounded-full border border-slate-200 text-slate-900" type="button">
+          Añadir al carrito
+        </button>
+      </div>
+      <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-pink-600 bg-pink-50" type="button" aria-label="Like">
+        <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+        </svg>
+      </button>
+    </div>
+    <p class="text-sm text-slate-500">
+      Consulte las tarifas de envio con su proveedor.
+    </p>
+  </form>
+</div>
           </Card>
           <Card>
-            <CardImage src="https://via.placeholder.com/300x300.png?text=Product+2" alt="Product 2" />
-            <CardTitle>{language === 'es' ? 'Producto 2' : 'Product 2'}</CardTitle>
-            <CardDescription>{language === 'es' ? 'Descripción del Producto 2' : 'Product 2 Description'}</CardDescription>
+           
+<div class="flex font-sans">
+  <div class="flex-none w-56 relative">
+    <img src={maquillaje} alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+  </div>
+  <form class="flex-auto p-6">
+    <div class="flex flex-wrap">
+      <h1 class="flex-auto font-medium text-slate-900">
+        Producto 2
+      </h1>
+      <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-pink-600">
+        $3900.00
+      </div>
+      <div class="text-sm font-medium text-slate-400">
+        In stock
+      </div>
+    </div>
+    <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+    
+    </div>
+    <div class="flex space-x-4 mb-5 text-sm font-medium">
+      <div class="flex-auto flex space-x-4">
+        <button onClick={goDetail} class="h-10 px-6 font-semibold rounded-full bg-pink-600 text-white" type="submit">
+          Comprar Ahora 
+        </button>
+        <button class="h-10 px-6 font-semibold rounded-full border border-slate-200 text-slate-900" type="button">
+          Añadir al carrito 
+        </button>
+      </div>
+      <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-pink-600 bg-pink-50" type="button" aria-label="Like">
+        <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+        </svg>
+      </button>
+    </div>
+    <p class="text-sm text-slate-500">
+      Free shipping on all continental US orders.
+    </p>
+  </form>
+</div>
           </Card>
           <Card>
-            <CardImage src="https://via.placeholder.com/300x300.png?text=Product+3" alt="Product 3" />
-            <CardTitle>{language === 'es' ? 'Producto 3' : 'Product 3'}</CardTitle>
-            <CardDescription>{language === 'es' ? 'Descripción del Producto 3' : 'Product 3 Description'}</CardDescription>
+           
+<div class="flex font-sans">
+  <div class="flex-none w-56 relative">
+    <img src={maquillaje} alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+  </div>
+  <form class="flex-auto p-6">
+    <div class="flex flex-wrap">
+      <h1 class="flex-auto font-medium text-slate-900">
+        Producto 
+      </h1>
+      <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-pink-600">
+        $39.00
+      </div>
+      <div class="text-sm font-medium text-slate-400">
+        In stock
+      </div>
+    </div>
+    <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+      
+    </div>
+    <div class="flex space-x-4 mb-5 text-sm font-medium">
+      <div class="flex-auto flex space-x-4">
+        <button class="h-10 px-6 font-semibold rounded-full bg-pink-600 text-white" type="submit">
+           Comprar Ahora
+        </button>
+        <button class="h-10 px-6 font-semibold rounded-full border border-slate-200 text-slate-900" type="button">
+          Añadir al carrito 
+        </button>
+      </div>
+      <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-pink-600 bg-pink-50" type="button" aria-label="Like">
+        <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+        </svg>
+      </button>
+    </div>
+    <p class="text-sm text-slate-500">
+      Free shipping on all continental US orders.
+    </p>
+  </form>
+</div>
+          </Card>
+          <Card>
+           
+           <div class="flex font-sans">
+             <div class="flex-none w-56 relative">
+               <img src={maquillaje} alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+             </div>
+             <form class="flex-auto p-6">
+               <div class="flex flex-wrap">
+                 <h1 class="flex-auto font-medium text-slate-900">
+                   Producto 
+                 </h1>
+                 <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-pink-600">
+                   $39.00
+                 </div>
+                 <div class="text-sm font-medium text-slate-400">
+                   In stock
+                 </div>
+               </div>
+               <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+                
+               </div>
+               <div class="flex space-x-4 mb-5 text-sm font-medium">
+                 <div class="flex-auto flex space-x-4">
+                   <button onClick={goDetail} class="h-10 px-6 font-semibold rounded-full bg-pink-600 text-white" type="submit">
+                     Comprar Ahora 
+                   </button>
+                   <button class="h-10 px-6 font-semibold rounded-full border border-slate-200 text-slate-900" type="button">
+                     Añadir al carrito 
+                   </button>
+                 </div>
+                 <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-pink-600 bg-pink-50" type="button" aria-label="Like">
+                   <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                   </svg>
+                 </button>
+               </div>
+               <p class="text-sm text-slate-500">
+                 Free shipping on all continental US orders.
+               </p>
+             </form>
+           </div>
+          </Card>
+          <Card>
+           
+           <div class="flex font-sans">
+             <div class="flex-none w-56 relative">
+               <img src={maquillaje} alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+             </div>
+             <form class="flex-auto p-6">
+               <div class="flex flex-wrap">
+                 <h1 class="flex-auto font-medium text-slate-900">
+                   Producto 
+                 </h1>
+                 <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-pink-600">
+                   $39.00
+                 </div>
+                 <div class="text-sm font-medium text-slate-400">
+                   In stock
+                 </div>
+               </div>
+               <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+                 
+               </div>
+               <div class="flex space-x-4 mb-5 text-sm font-medium">
+                 <div class="flex-auto flex space-x-4">
+                   <button onClick={goDetail} class="h-10 px-6 font-semibold rounded-full bg-pink-600 text-white" type="submit">
+                     Comprar Ahora 
+                   </button>
+                   <button class="h-10 px-6 font-semibold rounded-full border border-slate-200 text-slate-900" type="button">
+                     Añadir al carrito 
+                   </button>
+                 </div>
+                 <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-pink-600 bg-pink-50" type="button" aria-label="Like">
+                   <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                   </svg>
+                 </button>
+               </div>
+               <p class="text-sm text-slate-500">
+                 Free shipping on all continental US orders.
+               </p>
+             </form>
+           </div>
+          </Card>
+          <Card>
+           <div class="flex font-sans">
+             <div class="flex-none w-56 relative">
+               <img src={maquillaje} alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+             </div>
+             <form class="flex-auto p-6">
+               <div class="flex flex-wrap">
+                 <h1 class="flex-auto font-medium text-slate-900">
+                   Producto 
+                 </h1>
+                 <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-pink-600">
+                   $39.00
+                 </div>
+                 <div class="text-sm font-medium text-slate-400">
+                   In stock
+                 </div>
+               </div>
+               <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+                
+               </div>
+               <div class="flex space-x-4 mb-5 text-sm font-medium">
+                 <div class="flex-auto flex space-x-4">
+                   <button onClick={goDetail} class="h-10 px-6 font-semibold rounded-full bg-pink-600 text-white" type="submit">
+                     Comprar Ahora 
+                   </button>
+                   <button class="h-10 px-6 font-semibold rounded-full border border-slate-200 text-slate-900" type="button">
+                     Añadir al carrito 
+                   </button>
+                 </div>
+                 <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-pink-600 bg-pink-50" type="button" aria-label="Like">
+                   <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                   </svg>
+                 </button>
+               </div>
+               <p class="text-sm text-slate-500">
+                 Free shipping on all continental US orders.
+               </p>
+             </form>
+           </div>
+          </Card>
+          <Card>      
+           <div class="flex font-sans">
+             <div class="flex-none w-56 relative">
+               <img src={maquillaje} alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" loading="lazy" />
+             </div>
+             <form class="flex-auto p-6">
+               <div class="flex flex-wrap">
+                 <h1 class="flex-auto font-medium text-slate-900">
+                   Producto 
+                 </h1>
+                 <div class="w-full flex-none mt-2 order-1 text-3xl font-bold text-pink-600">
+                   $39.00
+                 </div>
+                 <div class="text-sm font-medium text-slate-400">
+                   In stock
+                 </div>
+               </div>
+               <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+                 
+               </div>
+               <div class="flex space-x-4 mb-5 text-sm font-medium">
+                 <div class="flex-auto flex space-x-4">
+                   <button onClick={goDetail} class="h-10 px-6 font-semibold rounded-full bg-pink-600 text-white" type="submit">
+                     Comprar Ahora 
+                   </button>
+                   <button class="h-10 px-6 font-semibold rounded-full border border-slate-200 text-slate-900" type="button">
+                     Añadir al carrito 
+                   </button>
+                 </div>
+                 <button class="flex-none flex items-center justify-center w-9 h-9 rounded-full text-pink-600 bg-pink-50" type="button" aria-label="Like">
+                   <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                   </svg>
+                 </button>
+               </div>
+               <p class="text-sm text-slate-500">
+                 Free shipping on all continental US orders.
+               </p>
+             </form>
+           </div>
           </Card>
         </CardContainer>
+{/* Daniel Productos */}
+
         <div style={{ height: '300px', overflowY: 'scroll' }}>
           <Carousel />
         </div>
